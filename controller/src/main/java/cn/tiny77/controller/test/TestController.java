@@ -26,8 +26,9 @@ public class TestController {
 	
 	@PostMapping("test")
 	public String testPost(Model model, User  user, BindingResult result) {
-		
-		return "test";
+		if(result.hasErrors())
+			return "test";
+		return "redirect:test.do";
 	}
 	
 }
