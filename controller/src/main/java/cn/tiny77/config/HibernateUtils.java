@@ -1,6 +1,5 @@
 package cn.tiny77.config;
 
-import javax.validation.Validation;
 import javax.validation.Validator;
 
 import org.hibernate.validator.HibernateValidator;
@@ -17,7 +16,7 @@ public class HibernateUtils {
 		// 校验者
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		bean.setProviderClass(HibernateValidator.class);
-		bean.setValidationMessageSource(CtxUtils.getBean(ReloadableResourceBundleMessageSource.class));
+		// bean.setValidationMessageSource(CtxUtils.getBean(ReloadableResourceBundleMessageSource.class));
 		return bean;
 	}
 	
