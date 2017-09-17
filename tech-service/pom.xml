@@ -8,12 +8,12 @@
 		<artifactId>blog</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<groupId>cn.tiny77</groupId>
-	<artifactId>controller</artifactId>
-	<version>1.0.0</version>
-	<packaging>war</packaging>
-	<name>controller Maven Webapp</name>
+	<artifactId>tech-service</artifactId>
+	<name>tech-service</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -21,14 +21,5 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>cn.tiny77</groupId>
-			<artifactId>service</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		
 	</dependencies>
-	<build>
-		<finalName>controller</finalName>
-	</build>
 </project>

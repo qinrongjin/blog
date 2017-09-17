@@ -3,8 +3,13 @@ package cn.tiny77.controller.test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.alibaba.druid.stat.TableStat.Mode;
+
+import cn.tiny77.dpi.test.User;
 import redis.clients.jedis.Jedis;
 
 @Controller
@@ -15,12 +20,15 @@ public class TestController {
 	
 	@GetMapping("test")
 	public String test(Model model) {
-		String key = jedis.get("id");
-		if(key==null) jedis.set("id", "0");
-		else jedis.incr("id");
-		key = jedis.get("id");
-		model.addAttribute("id", key);
+		model.addAttribute("user", new User());
 		return "test";
+	}
+	
+	@PostMapping("test")
+	public String testPost(Model model, User  user, BindingResult result) {
+		if(result.hasErrors())
+			return "test";
+		return "redirect:test.do";
 	}
 	
 }
